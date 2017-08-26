@@ -12,13 +12,17 @@ using namespace std;
 bool isPrimeNumber(int num)
 {
 	if (num == 2)
-		return true;
-	if (num % 2 == 0)
-		return false;
-	int root = sqrt(num) + 0.9;
-	for (int i = 3; i <= root; i++)
 	{
-		if ((num % i) == 0)
+		return true;
+	}
+	if (num % 2 == 0)
+	{
+		return false;
+	}
+
+	for (int i = 3; i*i <= num; i++)
+	{
+		if (num % i == 0)
 		{
 			return false;
 		}
