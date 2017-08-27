@@ -31,6 +31,8 @@ int main() {
 	for (int i = 0; i < N; i++){
 		cout << array[i] << " ";
 	}
+	
+	delete [] array;
 
 	return 0;
 }
