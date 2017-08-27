@@ -1,3 +1,5 @@
+// Spent: 5 min
+
 #include <iostream>
 using namespace std;
 
