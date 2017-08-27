@@ -1,5 +1,6 @@
 // Spent: 20m
 // Result: OK
+// Failed to go without [] because of loperand errors
 
 #include <iostream>
 using namespace std;
