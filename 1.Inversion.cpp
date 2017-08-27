@@ -9,7 +9,7 @@ int * invert(int * array, int size){
 	for (int i = 0, j = size - 1; i < size / 2; i++, j--){
 	
 		array[i]+=array[j];
-		array[j]=(array[i]-array[j]);
+		array[j]=array[i]-array[j];
 		array[i]-=array[j];
 	}
 	
