@@ -1,3 +1,6 @@
+// result: OK O_o
+// but i've spent 3 hours (is it really very bad?) and still have a feeling there must be a simpler solution
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
