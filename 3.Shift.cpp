@@ -16,20 +16,20 @@ long int * shift (long int * array, long int size, long int offset) {
 		
 		long int j = 0;
 		
-		for (long int i = offset - 1; i < size; i++, j++) {
+		for (long int i = offset; i < size; i++, j++) {
 			arrayToReturn[j] = array[i];
 		}
-		for (long int i = 0; i < offset - 1; i ++, j++) {
+		for (long int i = 0; i < offset; i ++, j++) {
 			arrayToReturn[j] = array[i];
 		}
 	}
 	else {
 		long int j = 0;
 		
-		for (long int i = size - 1 + offset + 1; i < size; i++, j++) {
+		for (long int i = size + offset; i < size; i++, j++) {
 			arrayToReturn[j] = array[i];
 		}
-		for (long int i = 0; i < size - 1 + offset + 1; i++, j++) {
+		for (long int i = 0; i < size + offset; i++, j++) {
 			arrayToReturn[j] = array[i];
 		}
 	}
