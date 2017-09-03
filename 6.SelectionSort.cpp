@@ -33,7 +33,7 @@ int main() {
 	for (int i = 0; i < s; i++) {
 		cin >> array[i];
 	}
-	selectionSort (array, s);
+	selectionSort(array, s);
 	
 	for (int i = 0; i < s; i++) {
 		cout << array[i]; i < s - 1 ? cout << " " : cout << "\n";
