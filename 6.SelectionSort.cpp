@@ -39,5 +39,7 @@ int main() {
 		cout << array[i]; i < s - 1 ? cout << " " : cout << "\n";
 	}
 	
+	delete[] array;
+	
 	return 0;
 }
