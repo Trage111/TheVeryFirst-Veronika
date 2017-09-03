@@ -29,7 +29,7 @@ int main() {
 	
 	int s;
 	cin >> s;
-	int * array = new int [s];
+	int * array = new int[s];
 	for (int i = 0; i < s; i++) {
 		cin >> array[i];
 	}
