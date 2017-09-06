@@ -34,7 +34,7 @@ int main() {
 		cin >> array[i];
 	}
 	
-	sort(array, array + size, comp);
+	stable_sort(array, array + size, comp);
 	
 	for (int i = 0; i < size; i++) {
 		cout << array[i] << " ";
