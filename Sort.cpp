@@ -11,10 +11,8 @@ using namespace std;
 int decToBin (int dec) {
 	
 	int bin = 0;
-	for (int i = 0; dec; i++) {
-		if (dec % 2) {
-			bin += pow(10, i);
-		}
+	for (int i = 0, power = 1; dec; i++, power *= 10) {
+		bin += (dec % 2) * power;
 		dec /= 2;
 	}
 	
