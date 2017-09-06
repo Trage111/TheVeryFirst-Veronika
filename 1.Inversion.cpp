@@ -1,7 +1,3 @@
-// Spent: 20m
-// Result: OK
-// Failed to go without [] because of loperand errors - really need to discuss!
-
 #include <iostream>
 using namespace std;
 
