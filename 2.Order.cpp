@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void order (int & x, int & y) {
+void order (int &x, int &y) {
 	
 	if (x > y) {
 		y += x;
@@ -12,7 +12,7 @@ void order (int & x, int & y) {
 	}
 }
 
-void order (int & x, int & y, int & z) {
+void order (int &x, int &y, int &z) {
 	
 	order (x, y);
 	order (y, z);
