@@ -10,29 +10,32 @@ struct Point {
 	int y;
 };
 
-float Interval (Point a, Point b) {
-	return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+double distance (Point a, Point b) {
+	
+	double dx = b.x - a.x;
+	double dy = b.y - a.y;
+	return sqrt(dx * dx + dy * dy);
 }
 
-float triangleSquare (Point a, Point b, Point c) {
+double triangleSquare (double a, double b, double c) {
 	
-	float sideAB = Interval(a, b);
-	float sideBC = Interval(b, c);
-	float sideAC = Interval(a, c);
+	double p = (a + b + c) / 2;
 	
-	float p = (sideAB + sideBC + sideAC) / 2;
-	
-	return sqrt(p * (p - sideAB) * (p - sideBC) * (p - sideAC));
+	return sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
-float maxTriangleSquare (Point * array, int size) {
-	float maxSquare = 0;
+double maxTriangleSquare (Point * array, int size) {
+	double maxSquare = 0;
 	
 	for (int i = 0; i < size - 2; i++) {
 		for (int j = i + 1; j < size - 1; j++) {
 			for (int k = j + 1; k < size; k++) {
-				if (triangleSquare(array[i],array[j],array[k]) > maxSquare) {
-					maxSquare = triangleSquare(array[i],array[j],array[k]);
+				double sideAB = distance(array[i], array[j]);
+				double sideBC = distance(array[j], array[k]);
+				double sideAC = distance(array[i], array[k]);
+				double square = triangleSquare(sideAB, sideBC, sideAC);
+				if (square > maxSquare) {
+					maxSquare = square;
 				}
 			}
 		}
