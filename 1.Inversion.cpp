@@ -5,16 +5,11 @@
 #include <iostream>
 using namespace std;
 
-int * invert(int * array, int size){
+void * invert(int * array, int size){
 	
-	for (int i = 0, j = size - 1; i < size / 2; i++, j--){
-	
-		array[i] += array[j];
-		array[j] = array[i] - array[j];
-		array[i] -= array[j];
+	for (int * i = array, * j = array + size - 1; i < j; i++, j--){
+		swap(*i, *j);
 	}
-	
-	return array;
 }
 
 int main() {
@@ -26,7 +21,7 @@ int main() {
 		cin >> array[i];
 	}
 
-	array = invert(array, N);
+	invert(array, N);
 	
 	for (int i = 0; i < N; i++){
 		cout << array[i] << " ";
