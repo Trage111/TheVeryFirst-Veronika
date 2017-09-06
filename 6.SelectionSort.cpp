@@ -4,24 +4,16 @@
 #include <iostream>
 using namespace std;
 
-void swap (int * x, int * y) {
-	*y += *x;
-	*x = *y - *x;
-	*y -= *x;
-}
-
 void selectionSort (int * array, int size) {
 	
-	int minNum = 0;
-	
 	for (int i = 0; i < size; i++) {
+		int minNum = i;
 		for (int j = i + 1; j < size; j++) {
 			if (array[j] < array[minNum]) {
 				minNum = j;
 			}
 		}
 		swap(array[i], array[minNum]);
-		minNum = i + 1;
 	}
 } 
 
