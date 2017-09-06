@@ -1,6 +1,3 @@
-// result: OK O_o
-// but i've spent 3 hours (is it really very bad?) and still have a feeling there must be a simpler solution
-
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -28,25 +25,25 @@ int main() {
 		array[x+shiftx][y+shifty] = i;
 		i++;
 
-		for (int j = 0; j < (circle * 2) - 1 && i < size * size; j++) {
+		for (int j = 0; j < circle * 2 - 1; j++) {
 			shifty--;
 			array[x+shiftx][y+shifty] = i;
 			i++;
 		}
 
-		for (int j = 0; j < circle * 2 && i < size * size; j++) {
+		for (int j = 0; j < circle * 2; j++) {
 			shiftx++;
 			array[x+shiftx][y+shifty] = i;
 			i++;
 		}
 		
-		for (int j = 0; j < circle * 2 && i < size * size; j++) {
+		for (int j = 0; j < circle * 2; j++) {
 			shifty++;
 			array[x+shiftx][y+shifty] = i;
 			i++;
 		}
 		
-		for (int j = 0; j < circle * 2 && i < size * size; j++) {
+		for (int j = 0; j < circle * 2; j++) {
 			shiftx--;
 			array[x+shiftx][y+shifty] = i;
 			i++;
