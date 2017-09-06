@@ -35,12 +35,7 @@ int main() {
 		}
 	}
 	
-	if(isSym(table, N)) {
-		cout << "yes" << endl;
-	}
-	else {
-		cout << "no" << endl;
-	}
+	isSym(table, N) ? cout << "yes" << : cout << "no"; cout << endl;
 	
 	delete [] table;
 	
