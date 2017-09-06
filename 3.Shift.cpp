@@ -1,41 +1,46 @@
-// Spent: a lot
-// Result: 3/31; wrong answers & runtime errors
+// Spent: a lot and even more
+// Result: 23/31 - OK, the rest - timeout reached (I realize that this code is time consuming)
 
 #include <iostream>
 using namespace std;
 
-long int * shift (long int * array, long int size, long int offset) {
-	
-	if (offset == 0) {
-		return array;
-	}
-	
-	long int * arrayToReturn = new long int[size];
+void swap (long int &a, long int &b) {
+	long int tmp = a;
+	a = b;
+	b = tmp;
+}
+
+void shift (long int * array, long int size, long int offset) {
 	
 	if (offset > 0) {
 		
-		long int j = 0;
+		for (long int j = offset; j > 0; j--) {
 		
-		for (long int i = offset; i < size; i++, j++) {
-			arrayToReturn[j] = array[i];
-		}
-		for (long int i = 0; i < offset; i ++, j++) {
-			arrayToReturn[j] = array[i];
-		}
-	}
-	else {
-		long int j = 0;
+			long int tmp = array[0];
 		
-		for (long int i = size + offset; i < size; i++, j++) {
-			arrayToReturn[j] = array[i];
-		}
-		for (long int i = 0; i < size + offset; i++, j++) {
-			arrayToReturn[j] = array[i];
+			for (long int i = 1; i < size; i++) {
+			
+				swap(array[i], tmp);		
+			}
+				
+			swap(array[0], tmp);
 		}
 	}
 	
-	
-	return arrayToReturn;
+	if (offset < 0) {
+		
+		for (long int j = offset; j < 0; j++) {
+		
+			long int tmp = array[size - 1];
+		
+			for (long int i = size - 2; i >= 0; i--) {
+				
+				swap(array[i], tmp);	
+			}
+					
+			swap(array[size - 1], tmp);			
+		}
+	}	
 }
 
 int main() {
@@ -48,7 +53,8 @@ int main() {
 	}
 	cin >> K;
 	
-	array = shift(array, N, K);
+	
+	shift(array, N, K);
 	
 	for (long int i = 0; i < N; i++) {
 		cout << array[i] << " ";
