@@ -13,23 +13,19 @@
 #include <iostream>
 using namespace std;
 
-void lookAndFind (int *arrayOne, int *arrayTwo, int sizeOne, int sizeTwo) {
-	for (int i = 0; i < sizeTwo; i++)
-	{	
-		bool found = 0;
-		for (int j = 0; j < sizeOne; j++) {
-			if (arrayOne[j] == arrayTwo[i]) {
-				found = 1;
-				break;
-			}
+bool search (int *array, int size, int value) {
+	for (int i = 0; i < size; i++) {
+		if (array[i] == value) {
+			return true;
 		}
-		if (found) {
-			cout << "YES" << endl;
-		}
-		else {
-			cout << "NO" << endl;
-		}
+	}
+	return false;
+}
 
+void lookAndFind (int *arrayOne, int *arrayTwo, int sizeOne, int sizeTwo) {
+
+	for (int j = 0; j < sizeTwo; j++) {
+		cout << (search (arrayOne, sizeOne, arrayTwo[j]) ? "YES" : "NO") << endl;
 	}
 }
 
