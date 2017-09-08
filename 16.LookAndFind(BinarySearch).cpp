@@ -1,31 +1,35 @@
-/* 	status 		time	ast.t. 	memory
-
-1 	OK 		0 	0.001 	1867776
-2 	OK 		0 	0.001 	1867776
-3 	OK 		0 	0.001 	1867776
-4 	OK 		0 	0.001 	1867776
-5 	OK 		0.001 	0.002 	1867776
-6 	OK 		0.022 	0.023 	1867776
-7 	OK 		0.265 	0.267 	2818048
-8 	OK 		0 	0.001 	1867776 */
-
+/*	status		time	ast.t.	memory
+1 	OK		0 	0.001 	1871872
+2 	OK 		0 	0.001 	1871872
+3 	OK 		0 	0.001 	1871872
+4 	OK 		0 	0.001 	1871872
+5 	OK 		0.002 	0.004 	1871872
+6 	OK 		0.022 	0.023 	1871872
+7 	OK 		0.181 	0.182 	2822144
+8 	OK 		0 	0.001 	1871872 */
 
 #include <iostream>
 using namespace std;
 
-bool search (const int *array, int size, const int value) {
+bool search (const int *array, int left, int right, const int value) {
 	
-	if (size == 1) {
-		return array[0] == value;
+	if (right - left <= 1) {
+		if (array[left] == value || array[right] == value) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	
 	else {
-		if (value > array[size / 2]) {
-			size % 2 ? search (array + size / 2 + 1, size / 2, value) : search (array + size / 2, size / 2, value);
+		int middle = (left + right) / 2;
+		if (value > array[middle]) {
+			search (array, middle, right, value);
 		}
 		else if (value < array[size / 2]){
-			search (array, size / 2, value);
+			search (array, left, middle, value);
 		}
 		else {
 			return true;
@@ -37,7 +41,7 @@ bool search (const int *array, int size, const int value) {
 void lookAndFind (const int *arrayOne, const int *arrayTwo, int sizeOne, int sizeTwo) {
 	
 	for (int i = 0; i < sizeTwo; i++) {
-		if (search(arrayOne, sizeOne, arrayTwo[i])) {
+		if (search(arrayOne, 0, sizeOne - 1, arrayTwo[i])) {
 			cout << "YES" << endl;
 		}
 		else {
