@@ -1,7 +1,3 @@
-// result: 1/21
-// no idea what's wrong, all my own tests were OK
-
-
 #include <iostream>
 #include <cmath>
 #include <algorithm>
