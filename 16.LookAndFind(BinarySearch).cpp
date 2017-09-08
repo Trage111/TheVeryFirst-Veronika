@@ -16,12 +16,7 @@ using namespace std;
 bool search (const int *array, int size, const int value) {
 	
 	if (size == 1) {
-		if (array[0] == value) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return array[0] == value;
 	}
 	
 	
