@@ -47,7 +47,8 @@ Vector::~Vector() {
 }
 void Vector::at(int index, int &value) {
 	if (empty()) {
-		cout << "Error: Nothing to return" << endl;	
+		cout << "Error: Nothing to return" << endl;
+		return void();
 	}
 	if (index < 0) {
 		cout << "Error in At: Index must be a non-negative value" << endl;
@@ -61,7 +62,8 @@ void Vector::at(int index, int &value) {
 }
 void Vector::at(int index, char &value) {
 	if (empty()) {
-		cout << "Error: Nothing to return" << endl;	
+		cout << "Error: Nothing to return" << endl;
+		return void();
 	}
 	if (index < 0) {
 		cout << "Error in At: Index must be a non-negative value" << endl;
@@ -75,7 +77,8 @@ void Vector::at(int index, char &value) {
 }
 void Vector::at(int index) {
 	if (empty()) {
-		cout << "Error: Nothing to show" << endl;	
+		cout << "Error: Nothing to show" << endl;
+		return void();
 	}
 	if (index < 0) {
 		cout << "Error in At: Index must be a non-negative value" << endl;
