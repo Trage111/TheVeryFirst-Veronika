@@ -117,9 +117,9 @@ class Vector {
 	public:
 	Vector(int t): itsSize(0), type(t) {
 		switch (type){
-		case CHAR: array = new aChar(itsSize);
+		case CHAR: array = new aChar[itsSize];
 		break;
-		case INT: array = new aInt(itsSize);
+		case INT: array = new aInt[itsSize];
 		break;
 		default: cout << "Error in Vector constructor: Unknown type" << endl;
 		}
@@ -146,9 +146,9 @@ class Vector {
 	void insert(char *value, int member) {
 		arr *tmp = array;
 		switch (type){
-		case CHAR: array = new aChar(++itsSize);
+		case CHAR: array = new aChar[++itsSize];
 		break;
-		case INT: array = new aInt(++itsSize);
+		case INT: array = new aInt[++itsSize];
 		break;
 		}
 		array->insert(tmp, value, member, itsSize);
@@ -160,16 +160,16 @@ class Vector {
 			return void();
 		}
 		arr *tmp = array;
-		array = new aInt(++itsSize);
+		array = new aInt[++itsSize];
 		array->insert(tmp, value, member, itsSize);
 		delete tmp;
 	}
 	void erase(int member) {
 		arr *tmp = array;
 		switch (type){
-		case CHAR: array = new aChar(--itsSize);
+		case CHAR: array = new aChar[--itsSize];
 		break;
-		case INT: array = new aInt(--itsSize);
+		case INT: array = new aInt[--itsSize];
 		break;
 		}
 		array->erase(tmp, member, itsSize);
@@ -179,9 +179,9 @@ class Vector {
 		itsSize -= last - first;
 		arr *tmp = array;
 		switch (type){
-		case CHAR: array = new aChar(itsSize);
+		case CHAR: array = new aChar[itsSize];
 		break;
-		case INT: array = new aInt(itsSize);
+		case INT: array = new aInt[itsSize];
 		break;
 		}
 		array->erase(tmp, first, last, itsSize);
@@ -190,9 +190,9 @@ class Vector {
 	void push_back(char *value) {
 		arr *tmp = array;
 		switch (type){
-		case CHAR:	array = new aChar(++itsSize);
+		case CHAR: array = new aChar[++itsSize];
 		break;
-		case INT: array = new aInt(++itsSize);
+		case INT: array = new aInt[++itsSize];
 		break;
 		}
 		array->insert(tmp, value, itsSize-1, itsSize);
@@ -201,9 +201,9 @@ class Vector {
 	void pop_back() {
 		arr *tmp = array;
 		switch (type){
-		case CHAR: array = new aChar(--itsSize);
+		case CHAR: array = new aChar[--itsSize];
 		break;
-		case INT: array = new aInt(--itsSize);
+		case INT: array = new aInt[--itsSize];
 		break;
 		}
 		array->erase(tmp, itsSize, itsSize);
